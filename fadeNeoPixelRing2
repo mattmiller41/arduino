@@ -133,32 +133,32 @@ void pulseRangeOfLeds(int firstPixel, int lastPixel, uint32_t color, int duratio
   }
   
   for(int i = pulseBrightness; i > 0; i-=increment) {
-    strip.setBrightness(i);
-    int pixel = firstPixel;
-    while(pixel < lastPixel) {
-      turnPixelOn(pixel, color);
-      pixel++;
-      }
-    delay(adjustedTime);
-  }
+    strip.setBrightness(i); //controls strip brightness
+    int pixel = firstPixel; //controls first pixel
+    while(pixel < lastPixel) { //controls sequence to last pixel
+      turnPixelOn(pixel, color); //tells pixel when to turn on and what color to be
+      pixel++; //adds a new pixel
+      } //break
+    delay(adjustedTime); //tells how long to delay
+  } //break
   
-}
+} //break
 
 
 
 
-void turnPixelOn(int pixelNumber, uint32_t pixelColor) {
-  strip.setPixelColor(pixelNumber, pixelColor);
-  strip.show();
-}
+void turnPixelOn(int pixelNumber, uint32_t pixelColor) { //controls pixel sequence
+  strip.setPixelColor(pixelNumber, pixelColor); //controls pixels
+  strip.show(); //controls which strip shows
+} //break
 
 
 
-void turnPixelOff(int pixelNumber) {
-  strip.setPixelColor(pixelNumber, 0, 0, 0);
-  strip.show();
-}
-
+void turnPixelOff(int pixelNumber) { //tells pixel when to shut off
+  strip.setPixelColor(pixelNumber, 0, 0, 0); //tells strip what color to be
+  strip.show(); //controls which strip shows
+} //break
+ 
 
 
 
